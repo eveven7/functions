@@ -102,6 +102,26 @@ console.log(exponent(4, 2));
 // console.log(exponent(2, 5));
 
 
+console.log(" 1 uzd VIDUTINIAI KITAS SPRENDIMO BUDAS ------------------------------------------------------");
+
+
+let kint1 = 2;
+let kint2 = 3;
+
+function laipsnis(num, pow) {
+    if (pow == 0) {
+        return 1;
+    }
+    let laipsnis = num;
+    for (let u = 0; u < pow - 1; u++) {
+        laipsnis *= num;
+
+    }
+    return laipsnis;
+
+}
+
+
 console.log(" 2 uzd VIDUTINIAI ------------------------------------------------------");
 
 let rest2 = pirma(2, 50, "laipsnis");
@@ -130,4 +150,70 @@ insert1();
 function insert1() {
     let container2 = document.getElementById("myHeader1");
     container2.innerHTML += " iterpta antra kart";
+    container2.innerHTML += " " + (1 + Math.floor(Math.random() * 5));
 }
+
+console.log(" 3uzd ------------------------------------------------------");
+
+let x = Math.random().toString(36).slice(-5);
+console.log(x);
+
+if (x.match(/\d+/g) != 0) {
+    let container2 = document.getElementById("myHeader1");
+    let digitsOnlyString = x.replace(/[^0-9]/g, '');
+
+
+    container2.innerHTML += " " + digitsOnlyString;
+
+}
+else {
+    for (let i = 0; i < x.length; i++) {
+        const element = x[i];
+
+    }
+    container2.innerHTML += element;
+
+}
+
+console.log(" 4uzd ------------------------------------------------------");
+
+//Parašykite funkciją, kuri skaičiuotų, 
+//iš kiek sveikų skaičių jos argumentas dalijasi 
+//be liekanos (išskyrus vienetą ir patį save
+
+
+
+console.log(" 5uzd ------------------------------------------------------");
+
+
+// var arr4 = Math.floor(Math.random() * (77 - 33));
+let arr4 = [];
+// console.log(arr4);
+
+for (let a = 0; a < 10; a++) {
+    arr4[a] = Math.floor(Math.random() * (77 - 33));
+}
+console.log(arr4);
+
+// for (let i = 0; i < arr4.length; i++) {
+//     const element = array[i];
+
+// }
+
+console.log(" 6uzd ------------------------------------------------------");
+function find(number) {
+    let Num = 0;
+    for (let i = 2; i < number; i++) {
+        if (number % i == 0) {
+            Num++;
+        }
+    }
+    return Num++;
+}
+
+
+console.log(" 7uzd ------------------------------------------------------");
+
+
+let newArray = createArray(33, 77, 100);
+console.log(newArray);
