@@ -235,7 +235,48 @@ function find(number) {
 
 
 console.log(" 7uzd ------------------------------------------------------");
+// Sugeneruokite atsitiktinio (nuo 10 iki 20) ilgio masyvą, kurio visi, išskyrus paskutinį, elementai yra atsitiktiniai 
+// skaičiai nuo 0 iki 10, o paskutinis masyvas, kuris generuojamas pagal tokią pat salygą kaip ir pirmasis masyvas. Viską 
+// pakartokite atsitiktinį nuo 10 iki 30  kiekį kartų. Paskutinio masyvo paskutinis elementas yra lygus 0
 
 
-let newArray = createArray(33, 77, 100);
-console.log(newArray);
+let masyvasAtsitiktinis = [];
+let masyvoIlgis = rand(10, 20);
+let paskutinis = [];
+let paskutinioIlgis = rand(10, 20);
+
+let pakartotasIlgis = rand(10, 30);
+
+for (let k = 0; k < pakartotasIlgis; k++) {
+    let pakartotas = [];
+    for (let i = 0; i < masyvoIlgis; i++) {
+        masyvasAtsitiktinis.push(rand(0, 10));
+        if (i < masyvoIlgis - 1) {
+            continue;
+        } else for (let j = 0; j < paskutinioIlgis; j++) {
+            paskutinis.push(rand(0, 10));
+        }
+        masyvasAtsitiktinis[masyvasAtsitiktinis.length] = paskutinis;
+        paskutinis[paskutinioIlgis] = 0;
+    }
+    pakartotas.push(masyvasAtsitiktinis);
+    console.log(pakartotas);
+}
+
+console.log(" 10uzd ------------------------------------------------------");
+// // Sugeneruokite masyvą iš 10 elementų, kurie yra masyvai iš 10 elementų, 
+// kurie yra atsitiktiniai skaičiai nuo 1 iki 100. Jeigu tokio didelio masyvo (ne atskirai mažesnių) pirminių skaičių vidurkis 
+// mažesnis už 70, suraskite masyve mažiausią skaičių (nebūtinai pirminį) ir prie jo pridėkite 3. Vėl paskaičiuokite masyvo pirminių skaičių vidurkį ir jeigu mažesnis nei 70 viską kartokite. 
+
+
+let masyvas1 = [];
+
+for (let i = 0; i < 10; i++) {
+    let masyvas10 = [];
+    for (let j = 0; j < 10; j++) {
+        masyvas10.push(rand(1, 100));
+    }
+    masyvas1.push(masyvas10);
+}
+
+console.log(masyvas1);
