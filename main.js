@@ -29,7 +29,16 @@ for (var i = 0; i < str.length; i++) {
     count++;
 
 }
+//-----------------------
 
+
+findCharNum("Tekstas grazuolis!");
+
+function findCharNum(text) {
+    // text.replace(/\s/g, ''); => panaikina tekste esancius tarpus
+    text = text.replace(/\s/g, '');
+    console.log("Tekste esanciu simboliu sk: " + text.length);
+}
 console.log("Siame tekste tiek yra simboliu " + count);
 
 console.log(" 4 uzd ------------------------------------------------------");
@@ -181,6 +190,19 @@ console.log(" 4uzd ------------------------------------------------------");
 //iš kiek sveikų skaičių jos argumentas dalijasi 
 //be liekanos (išskyrus vienetą ir patį save
 
+
+console.log(findNum(40));
+// atranda is kiek skaiciu argumentas dalijasi be liekanos
+function findNum(number) {
+    // sveiku skaiciu (is kuriu argumentas dalijasi be liekanos) kiekis 
+    let intNum = 0;
+    for (let i = 2; i < number; i++) {
+        if (number % i == 0) {
+            intNum++;
+        }
+    }
+    return intNum;
+}
 
 
 console.log(" 5uzd ------------------------------------------------------");
