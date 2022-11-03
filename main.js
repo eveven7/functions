@@ -223,22 +223,34 @@ console.log(arr4);
 // }
 
 console.log(" 6uzd ------------------------------------------------------");
-function find(number) {
-    let Num = 0;
-    for (let i = 2; i < number; i++) {
-        if (number % i == 0) {
-            Num++;
+//atsitiktiniai skaičiai nuo 333 iki 777. Naudodami 4 uždavinio funkciją iš masyvo ištrinkite pirminius skaičius.
+
+function kiekSveikuSkaiciu(sk) {
+    let sum = 0;
+    for (let i = 2; i < sk; i++) {
+        if (sk % i === 0) {
+            sum++;
         }
     }
-    return Num++;
+    return sum;
+    //   console.log(`${sk} dalinasi is ${sum} sveiku skaiciu.`);
 }
-
+let masyvas1 = [];
+for (let i = 0; i < 100; i++) {
+    let skaicius = rand(333, 777);
+    if (kiekSveikuSkaiciu(skaicius)) {
+        masyvas1[i] = skaicius;
+    }
+}
+console.log(masyvas1);
 
 console.log(" 7uzd ------------------------------------------------------");
-// Sugeneruokite atsitiktinio (nuo 10 iki 20) ilgio masyvą, kurio visi, išskyrus paskutinį, elementai yra atsitiktiniai 
-// skaičiai nuo 0 iki 10, o paskutinis masyvas, kuris generuojamas pagal tokią pat salygą kaip ir pirmasis masyvas. Viską 
-// pakartokite atsitiktinį nuo 10 iki 30  kiekį kartų. Paskutinio masyvo paskutinis elementas yra lygus 0
+//Sugeneruokite atsitiktinio (nuo 10 iki 20) ilgio masyvą, kurio visi, išskyrus paskutinį, elementai yra atsitiktiniai skaičiai nuo 0 iki 10, o paskutinis masyvas, kuris generuojamas pagal tokią pat salygą kaip ir pirmasis masyvas. Viską pakartokite atsitiktinį nuo 10 iki 30  kiekį kartų. Paskutinio masyvo paskutinis elementas yra lygus 0;
 
+
+function rand(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+};
 
 let masyvasAtsitiktinis = [];
 let masyvoIlgis = rand(10, 20);
@@ -263,20 +275,22 @@ for (let k = 0; k < pakartotasIlgis; k++) {
     console.log(pakartotas);
 }
 
-console.log(" 10uzd ------------------------------------------------------");
-// // Sugeneruokite masyvą iš 10 elementų, kurie yra masyvai iš 10 elementų, 
-// kurie yra atsitiktiniai skaičiai nuo 1 iki 100. Jeigu tokio didelio masyvo (ne atskirai mažesnių) pirminių skaičių vidurkis 
-// mažesnis už 70, suraskite masyve mažiausią skaičių (nebūtinai pirminį) ir prie jo pridėkite 3. Vėl paskaičiuokite masyvo pirminių skaičių vidurkį ir jeigu mažesnis nei 70 viską kartokite. 
+console.log(" 7uzd ------------------------------------------------------");
 
 
-let masyvas1 = [];
+//------------------------------------------
 
-for (let i = 0; i < 10; i++) {
-    let masyvas10 = [];
-    for (let j = 0; j < 10; j++) {
-        masyvas10.push(rand(1, 100));
+let masyvas2 = function () {
+    const masyvas = [];
+    masyvas.length = rand(10, 20);
+    for (let i = 0; i < masyvas.length; i++) {
+        for (let a = 0; a < masyvas.length - 1; a++) {
+            masyvas[a] = rand(0, 10);
+            masyvas[i] = masyvas[a];
+        }
+        masyvas[i] = [];
     }
-    masyvas1.push(masyvas10);
-}
+    console.log(masyvas);
+};
+masyvas2();
 
-console.log(masyvas1);
