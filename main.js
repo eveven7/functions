@@ -207,20 +207,31 @@ function findNum(number) {
 
 console.log(" 5uzd ------------------------------------------------------");
 
+//Sugeneruokite masyvą iš 100 elementų, kurio reikšmės atsitiktiniai skaičiai nuo 33 iki 77. Išrūšiuokite masyvą pagal daliklių be liekanos kiekį mažėjimo tvarka, panaudodami ketvirto uždavinio funkciją.
 
-// var arr4 = Math.floor(Math.random() * (77 - 33));
-let arr4 = [];
-// console.log(arr4);
-
-for (let a = 0; a < 10; a++) {
-    arr4[a] = Math.floor(Math.random() * (77 - 33));
+function createArray(min, max, length) {
+    let array = [];
+    for (let i = 0; i < length; i++) {
+        let randomNum = Math.round(Math.random() * (max - min) + min)
+        array[i] = randomNum;
+    }
+    return array
 }
-console.log(arr4);
+let newArray = createArray(33, 77, 100);
+console.log(newArray);
 
-// for (let i = 0; i < arr4.length; i++) {
-//     const element = array[i];
-
-// }
+const num = [13, 17, 14, 19, 16];
+let temp;
+for (let i = 0; i < newArray.length; i++) {
+    for (let j = i + 1; j < newArray.length; j++) {
+        if (findNum(newArray[i]) <= findNum(newArray[j])) {
+            temp = newArray[i]
+            newArray[i] = newArray[j]
+            newArray[j] = temp
+        }
+    }
+}
+console.log(newArray);
 
 console.log(" 6uzd ------------------------------------------------------");
 //atsitiktiniai skaičiai nuo 333 iki 777. Naudodami 4 uždavinio funkciją iš masyvo ištrinkite pirminius skaičius.
@@ -281,7 +292,7 @@ console.log(" 7uzd ------------------------------------------------------");
 //------------------------------------------
 
 let masyvas2 = function () {
-    const masyvas = [];
+    let masyvas = [];
     masyvas.length = rand(10, 20);
     for (let i = 0; i < masyvas.length; i++) {
         for (let a = 0; a < masyvas.length - 1; a++) {
